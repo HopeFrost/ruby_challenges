@@ -11,6 +11,13 @@ def self.add (post)
   @@num_blog_posts +=1
 end
 
+def self.publish
+  @@all_blog_posts.each do |post|
+    puts "#{post.title}, by #{post.author}, #{post.time_stamp}"
+    puts "post: #{post.post}"
+  end
+end
+
 end
 
 class Blogpost < Blog
@@ -33,17 +40,12 @@ def self.create
     print "See you next time\n"
   end
 end
-def self.publish
-  @@all_blog_posts.each do |post|
-    print "#{post.title}, by #{post.author}, #{post.time_stamp}"
-    print :post
-  end
-end
+
 
 def save
-  BlogPost.add(self)
+  Blogpost.add(self)
 end
 end
 
 Blogpost.create
-Blogpost.publish
+Blog.publish
