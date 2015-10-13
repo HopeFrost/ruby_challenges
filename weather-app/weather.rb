@@ -15,7 +15,7 @@ today= date.strftime('%w').to_i
 
 day = client.lookup_by_location(location).forecasts['date']
 print day
-weekday = day.strftime('%w')
+weekday = day.strftime('%w').to_i
 
 
 weekdays.each do |forcast|
