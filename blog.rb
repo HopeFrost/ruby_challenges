@@ -23,10 +23,9 @@ end
 class Blogpost < Blog
   attr_accessor :title, :author, :post, :time_stamp
 
-def self.create
+def self.create (answer)
   post = new
-  puts "Do you want to post? (yes/no)"
-  answer= gets.chomp.downcase
+
   if answer == "yes"
     puts "Please title your post:"
     post.title = gets.chomp
@@ -35,6 +34,7 @@ def self.create
     puts "Blog post:"
     post.post = gets.chomp
     post.time_stamp =Time.new
+post.save
     print "This is post number: #{@@num_blog_posts}\n"
   else
     print "See you next time\n"
@@ -47,5 +47,11 @@ def save
 end
 end
 
-Blogpost.create
+puts "Do you want to post? (yes/no)"
+answer= gets.chomp.downcase
+Blogpost.create(answer)
+Blog.publish
+puts "do you want to post again?"
+answer= gets.chomp.downcase
+Blogpost.create(answer)
 Blog.publish
