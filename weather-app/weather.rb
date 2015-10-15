@@ -13,7 +13,7 @@ today= date.strftime('%w').to_i
 
 
 respond.forecasts.each do |forecast|
-  day= forecasts['date']
+  day= forecast['date']
   weekday = day.strftime('%w').to_i
 
 if weekday == today
