@@ -10,7 +10,6 @@ def equation (birth_date)
   number_array3 = [number[0].to_i, number[1].to_i]
   number = number_array3.inject(:+)
 
-
 end
 
 
