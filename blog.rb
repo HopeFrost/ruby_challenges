@@ -51,11 +51,8 @@ puts "Do you want to post? (yes/no)"
 answer= gets.chomp.downcase
 Blogpost.create(answer)
 Blog.publish
-if answer == "yes"
+
   puts "do you want to post again?"
   answer= gets.chomp.downcase
   Blogpost.create(answer)
   Blog.publish
-else
-  print "See you next time\n"
-end

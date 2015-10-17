@@ -23,6 +23,6 @@ elsif weekday == today + 1
 else
    dayName = day.strftime('%A')
 end
-forecast_condition = forecasts['text']
+forecast_condition = forecast['text']
    puts "#{dayName} is going to be #{forecast_condition.downcase} with a low of #{forecast['low']} and a high of #{forecast['high']}"
 end
