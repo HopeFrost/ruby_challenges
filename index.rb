@@ -1,5 +1,10 @@
 require 'sinatra'
 
+
+post '/' do
+    "#{params}"
+end
+
 def equation (birth_date)
   number_array1 = [birth_date[0].to_i, birth_date[1].to_i, birth_date[2].to_i, birth_date[3].to_i, birth_date[4].to_i, birth_date[5].to_i, birth_date[6].to_i, birth_date[7].to_i]
   number = number_array1.inject(:+)
@@ -40,9 +45,14 @@ def statment (path_number)
 return message
 end
 
+
+post '/' do
+  erb :form
+end
+
 get '/:birth_date' do
   birth_date = params[:birth_date]
   path_number = equation (birth_date)
-  final_number = statment (path_number)
-"#{final_number}"
+  @final_number = statment (path_number)
+  erb :index
 end
